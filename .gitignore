@@ -21,3 +21,11 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+src/App.test.js
+src/reportWebVitals.js
+src/navbar.js
+src/logo.svg
+src/index.js
+src/App.test.js
+src/App.js
+src/setupTests.js
