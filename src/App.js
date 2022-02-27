@@ -1,24 +1,37 @@
-import './App.css';
+import Navbar from './Navbar';
+import Home from './Home';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Create from './Create';
+import Hello from './Hello';
+import BlogDetails from './BlogDetails';
+import NotFound from './NotFound';
 
 function App() {
-  const title = 'Welcome to the new blog';
-  const likes = 50;
-  const link = "http://www.google.com";
-  
-
   return (
-    <div className="App">
-      <div className="content">
-        <h1>{title}</h1>
-        <p>Liked {likes} times</p>
-
-        <p>{ 10 }</p>
-        <p>{ 'hello world' }</p>
-        <p>{ [1, 2, 3, 4] }</p>
-        <p>{ Math.random() * 10 }</p>
-        <a href={ link } target="-blank">Google link</a>
+    <Router>
+      <div className="App">
+        <Navbar />
+        <div className="content">
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/create">
+              <Create />
+            </Route>
+            <Route exact path="/hello">
+              <Hello />
+            </Route>
+            <Route path="/blogs/:id">
+              <BlogDetails />
+            </Route>
+            <Route path="*">
+              <NotFound />
+            </Route>
+          </Switch>
+        </div>
       </div>
-    </div>
+    </Router>
   );
 }
 
